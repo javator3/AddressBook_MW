@@ -21,6 +21,7 @@ cmake-build-debug/
 ## Plugin-specific files:
 
 # IntelliJ
+target
 /out/
 
 # JIRA plugin
