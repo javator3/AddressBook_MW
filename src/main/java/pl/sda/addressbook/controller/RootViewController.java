@@ -38,6 +38,8 @@ public class RootViewController implements Initializable {
     private TableColumn<Person, String> lastnameColumn;
     @FXML
     private Button newButton;
+    @FXML
+    private Button saveButton;
 
     private PersonView personView;
 
@@ -58,5 +60,9 @@ public class RootViewController implements Initializable {
 
     public void newButtonAction(ActionEvent actionEvent) throws IOException {
         personView.loadNewPersonView();
+    }
+
+    public void saveButtonAction(ActionEvent actionEvent) {
+        personView.saveButtonToJson();
     }
 }

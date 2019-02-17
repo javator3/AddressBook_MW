@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Magda",
+    "lastname": "Valis",
+    "street": "Letniskowa",
+    "city": "Toruń",
+    "postalcode": "87-100",
+    "telephone": "507718184"
+  },
+  {
+    "name": "Marta",
+    "lastname": "Waliszewska",
+    "street": "Letniskowa",
+    "city": "Toruń",
+    "postalcode": "87-100",
+    "telephone": "987654321"
+  },
+  {
+    "name": "Celinka",
+    "lastname": "Valis",
+    "street": "Syrenia",
+    "city": "Wszechocean",
+    "postalcode": "87-100",
+    "telephone": "123456789"
+  }
+]

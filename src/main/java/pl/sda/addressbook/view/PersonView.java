@@ -1,5 +1,6 @@
 package pl.sda.addressbook.view;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
@@ -10,6 +11,7 @@ import pl.sda.addressbook.controller.NewPersonController;
 import pl.sda.addressbook.controller.RootViewController;
 import pl.sda.addressbook.model.Person;
 
+import java.io.File;
 import java.io.IOException;
 
 public class PersonView {
@@ -69,6 +71,16 @@ public class PersonView {
     public void cancelButton() {
         personStage.close();
 
+    }
+
+    public void saveButtonToJson() {
+        ObjectMapper mapper = new ObjectMapper();
+        File file = new File("addressbook.json");
+        try {
+            mapper.writeValue(file, personList);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 
