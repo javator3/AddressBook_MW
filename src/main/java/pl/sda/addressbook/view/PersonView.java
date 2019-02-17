@@ -10,6 +10,7 @@ import javafx.stage.Stage;
 import pl.sda.addressbook.controller.NewPersonController;
 import pl.sda.addressbook.controller.RootViewController;
 import pl.sda.addressbook.model.Person;
+import pl.sda.addressbook.model.PersonString;
 
 import java.io.File;
 import java.io.IOException;
@@ -23,9 +24,21 @@ public class PersonView {
 
     public PersonView(Stage stage) {
         this.stage = stage;
-        personList.add(new Person("Magda", "Valis", "Letniskowa", "Toruń", "87-100", "507718184"));
-        personList.add(new Person("Marta", "Waliszewska", "Letniskowa", "Toruń", "87-100", "987654321"));
-        personList.add(new Person("Celinka", "Valis", "Syrenia", "Wszechocean", "87-100", "123456789"));
+//        personList.add(new Person("Magda", "Valis", "Letniskowa", "Toruń", "87-100", "507718184"));
+//        personList.add(new Person("Marta", "Waliszewska", "Letniskowa", "Toruń", "87-100", "987654321"));
+//        personList.add(new Person("Celinka", "Valis", "Syrenia", "Wszechocean", "87-100", "123456789"));
+
+        ObjectMapper mapper = new ObjectMapper();
+        File file = new File("addressbook.json");
+        PersonString[] person = null;
+        try {
+            person = mapper.readValue(file, PersonString[].class);
+            for (PersonString p: person) {
+                personList.add(new Person(p.getName(), p.getLastname(), p.getStreet(), p.getCity(), p.getPostalcode(), p.getTelephone()));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 
@@ -43,6 +56,9 @@ public class PersonView {
         loader.load();
         Parent parent = loader.getRoot();
         stage.setScene(new Scene(parent, 800, 400));
+
+
+
         RootViewController rootViewController = loader.getController();
         rootViewController.setPersonView(this);
         stage.show();

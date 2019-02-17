@@ -22,5 +22,13 @@
     "city": "Wszechocean",
     "postalcode": "87-100",
     "telephone": "123456789"
+  },
+  {
+    "name": "Fryderyczek",
+    "lastname": "Waliszewski",
+    "street": "TamGdzieCelinka",
+    "city": "Toruniek",
+    "postalcode": "87-100",
+    "telephone": "098765432"
   }
 ]
